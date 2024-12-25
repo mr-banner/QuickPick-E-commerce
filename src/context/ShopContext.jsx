@@ -3,13 +3,14 @@ import { products } from "../assets/assets";
 export const ShopContext = createContext();
 
 export const ShopContextProvider = (props)=>{
-    
+    const darkTheme = false;
+
     const currency = "$";
     const delivey_fee = 10;
 
 
     const value = {
-        products,currency,delivey_fee
+        products,currency,delivey_fee,darkTheme
     }
 
     return(
