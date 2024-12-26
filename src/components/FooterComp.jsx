@@ -11,7 +11,7 @@ const FooterComp = () => {
            
             <img
               onClick={()=> (window.scrollTo(0,0))}
-              className="w-[160px] mb-3 relative top-[-20px] left-[100px] sm:left-[-19px] sm:top-0"
+              className="w-[160px] mb-3 relative top-[-20px] left-[80px] sm:left-[-19px] sm:top-0"
               src={assets.logo}
               alt=""
             />
