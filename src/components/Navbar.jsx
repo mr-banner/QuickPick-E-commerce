@@ -1,6 +1,6 @@
 import React from "react";
 import logo from "../assets/logo.png";
-import { NavLink } from "react-router-dom";
+import { NavLink, useLocation } from "react-router-dom";
 import { assets } from "../assets/assets";
 import { Link } from "react-router-dom";
 import { ShopContext } from "../context/ShopContext";
@@ -8,6 +8,7 @@ import { ShopContext } from "../context/ShopContext";
 const Navbar = () => {
   const [toggle, setToggle] = React.useState(false);
   const {setShowSearch} = React.useContext(ShopContext);
+  const location = useLocation();
   return (
     <div className="flex justify-between items-center sm:py-4 font-medium">
       <Link to="/">
@@ -36,7 +37,7 @@ const Navbar = () => {
         </NavLink>
       </ul>
       <div className="flex justify-center gap-6">
-        {window.location.pathname === "/collection" && (
+        {location.pathname.includes("collection") && (
         <img
           className="w-5 object-contain cursor-pointer"
           src={assets.search_icon}
