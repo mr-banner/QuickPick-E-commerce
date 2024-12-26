@@ -1,5 +1,5 @@
 import React from "react";
-import { Routes, Route, Router } from "react-router-dom";
+import { Routes, Route, useLocation } from "react-router-dom";
 import Home from "./pages/Home";
 import About from "./pages/About";
 import Contact from "./pages/Contact";
@@ -13,12 +13,14 @@ import Navbar from "./components/Navbar";
 import FooterComp from "./components/FooterComp";
 import ScrollToTop from "./components/ScrollToTop";
 import SearchBar from './components/SearchBar'
+import Policy from "./pages/Policy";
 
 
 const App = () => {
+  const location = useLocation();
   return (
     <div className="px-4 sm:px[5vw] md:px-[7vw] lg:px[9vw]">
-      <Navbar />
+      {!location.pathname.includes('policy') && <Navbar />}
       <SearchBar/>
       <ScrollToTop />
       <Routes>
@@ -31,8 +33,9 @@ const App = () => {
         <Route path="/cart" element={<Cart />} />
         <Route path="/place-order" element={<PlaceOrder />} />
         <Route path="/order" element={<Orders />} />
+        <Route path="/policy" element={<Policy />} />
       </Routes>
-      <FooterComp />
+      {!location.pathname.includes('policy') && <FooterComp />}
     </div>
   );
 };

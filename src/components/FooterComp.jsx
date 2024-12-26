@@ -34,7 +34,7 @@ const FooterComp = () => {
           <NavLink to="/" onClick={()=> (window.scrollTo(0, 0))}> Home</NavLink>
           <Link to="/about"> About Us</Link>
           <Link to="/contact"> Contact </Link>
-          <Link to="/">PrivacyPolicy</Link>
+          <Link to="/policy">Privacy Policy</Link>
         </div>
         <div className="flex flex-col justify-evenly ">
           <h2 className="font-bold">GET IN TOUCH</h2>
