@@ -12,6 +12,8 @@ import Orders from "./pages/Orders";
 import Navbar from "./components/Navbar";
 import FooterComp from "./components/FooterComp";
 import ScrollToTop from "./components/ScrollToTop";
+import SearchBar from './components/SearchBar'
+
 
 const App = () => {
   return (
