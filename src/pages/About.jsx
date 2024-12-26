@@ -39,6 +39,11 @@ const About = () => {
           </p>
         </div>
       </div>
+    <div>
+
+    </div>
+  )
+}
 
       <div className="sm:text-2 xl text-xl text-left mt-10">
         <Title text1={"WHY"} text2={"CHOOSE US"} />
