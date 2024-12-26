@@ -5,7 +5,7 @@ import Title from "../components/Title";
 import ProductItem from "../components/ProductItem";
 
 const Collection = () => {
-  const { products } = useContext(ShopContext);
+  const { products, search,showSearch } = useContext(ShopContext);
   const [showFilter, setShowFilter] = useState(false);
   const [filteredProducts, setFilteredProducts] = useState([]);
   const [categories, setCategories] = useState([]);
@@ -38,6 +38,10 @@ const Collection = () => {
       productsCopy = productsCopy.filter((item) => types.includes(item.subCategory));
     }
 
+    if(search && showSearch){
+      productsCopy = productsCopy.filter((item) => item.name.toLowerCase().includes(search.toLowerCase()));
+    }
+
     setFilteredProducts(productsCopy);
   }
 
@@ -68,7 +72,7 @@ const Collection = () => {
 
   useEffect(() => {
     applyFilter();
-  },[categories,types]);
+  },[categories,types,search,showSearch]);
 
   useEffect(() => {
     sortProducts();
@@ -131,7 +135,7 @@ const Collection = () => {
       </div>
 
       <div className="flex-1">
-        <div className="flex justify-between items-center mb-4 text-base sm:text-2xl">
+        <div className="flex justify-between items-center mb-4 mt-6 sm:mt-0 text-base sm:text-2xl">
           <Title text1={"ALL"} text2={"PRODUCTS"} />
           <select onChange={(e)=>setSortType(e.target.value)} className="border border-gray-300 text-sm p-2">
             <option value="relavant">Sort by: relavant</option>

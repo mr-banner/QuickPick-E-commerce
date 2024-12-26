@@ -1,11 +1,14 @@
 import React from "react";
 import logo from "../assets/logo.png";
-import { NavLink } from "react-router-dom";
+import { NavLink, useLocation } from "react-router-dom";
 import { assets } from "../assets/assets";
 import { Link } from "react-router-dom";
+import { ShopContext } from "../context/ShopContext";
 
 const Navbar = () => {
   const [toggle, setToggle] = React.useState(false);
+  const {setShowSearch} = React.useContext(ShopContext);
+  const location = useLocation();
   return (
     <div className="flex justify-between items-center sm:py-4 font-medium">
       <Link to="/">
@@ -34,11 +37,13 @@ const Navbar = () => {
         </NavLink>
       </ul>
       <div className="flex justify-center gap-6">
+        {location.pathname.includes("collection") && (
         <img
           className="w-5 object-contain cursor-pointer"
           src={assets.search_icon}
           alt="search icon"
-        />
+          onClick={()=>setShowSearch(true)}
+        />)}
 
         <div className="group relative">
           <img
@@ -46,7 +51,7 @@ const Navbar = () => {
             src={assets.profile_icon}
             alt="profile icon"
           />
-          <div className="group-hover:block hidden absolute pt-3 right-0 dropdown-menu">
+          <div className="group-hover:block hidden absolute pt-3 top-2 sm:top-0 sm:right-[-50px] cursor-pointer dropdown-menu">
             <div className="flex flex-col gap-2 bg-slate-150 px-5 py-4 w-36 shadow-xl rounded-md text-gray-500">
               <p className="cursor-pointer hover:text-black">My Profile</p>
               <p className="cursor-pointer hover:text-black">Orders</p>
