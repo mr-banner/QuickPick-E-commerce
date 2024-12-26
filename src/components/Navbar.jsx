@@ -12,7 +12,7 @@ const Navbar = () => {
       <img
         src={logo}
         alt="logo"
-        className="sm:w-[123px] sm:h-[103px] w-[115px] h-[95px] object-contain"
+        className="sm:w-[163px] sm:h-[103px] w-[115px] h-[95px] object-contain"
       />
       </Link>
       <ul className="hidden sm:flex gap-5 text-sm text-gray-600">
