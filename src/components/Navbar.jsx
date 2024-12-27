@@ -4,11 +4,13 @@ import { NavLink, useLocation } from "react-router-dom";
 import { assets } from "../assets/assets";
 import { Link } from "react-router-dom";
 import { ShopContext } from "../context/ShopContext";
+import { useNavigate } from "react-router-dom";
 
 const Navbar = () => {
   const [toggle, setToggle] = React.useState(false);
   const {setShowSearch} = React.useContext(ShopContext);
   const location = useLocation();
+  const navigate = useNavigate();
   return (
     <div className="flex justify-between items-center sm:py-4 font-medium">
       <Link to="/">
@@ -50,14 +52,8 @@ const Navbar = () => {
             className="w-5 object-contain cursor-pointer"
             src={assets.profile_icon}
             alt="profile icon"
+            onClick={() => navigate("/login")}
           />
-          <div className="group-hover:block hidden absolute pt-3 top-2 sm:top-0 sm:right-[-50px] cursor-pointer dropdown-menu">
-            <div className="flex flex-col gap-2 bg-slate-150 px-5 py-4 w-36 shadow-xl rounded-md text-gray-500">
-              <p className="cursor-pointer hover:text-black">My Profile</p>
-              <p className="cursor-pointer hover:text-black">Orders</p>
-              <p className="cursor-pointer hover:text-black">Logout</p>
-            </div>
-          </div>
         </div>
         <Link to="/cart" className="relative cursor-pointer">
           <img src={assets.cart_icon} className="w-5 min-w-5" alt="cart" />
