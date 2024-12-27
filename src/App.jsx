@@ -20,7 +20,7 @@ const App = () => {
   const location = useLocation();
   return (
     <div className="px-4 sm:px[5vw] md:px-[7vw] lg:px[9vw]">
-      {!location.pathname.includes('policy') && <Navbar />}
+      {!location.pathname.includes('policy') && !location.pathname.includes('login')  && <Navbar />}
       <SearchBar/>
       <ScrollToTop />
       <Routes>
@@ -35,7 +35,7 @@ const App = () => {
         <Route path="/order" element={<Orders />} />
         <Route path="/policy" element={<Policy />} />
       </Routes>
-      {!location.pathname.includes('policy') && <FooterComp />}
+      {!location.pathname.includes('policy') && !location.pathname.includes('login') && <FooterComp />}
     </div>
   );
 };
