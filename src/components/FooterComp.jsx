@@ -6,9 +6,8 @@ const FooterComp = () => {
   return (
     <>
       <div className=" mt-16 grid sm:grid-cols-3 grid-cols-1 gap-y-6 sm:gap-x-36">
-        <div className="flex flex-col justify-between">
+        <div className="flex flex-col gap-3 -mt-6">
           <Link to="/">
-           
             <img
               onClick={()=> (window.scrollTo(0,0))}
               className="w-[160px] mb-3 relative top-[-20px] left-[80px] sm:left-[-19px] sm:top-0"
@@ -16,8 +15,8 @@ const FooterComp = () => {
               alt=""
             />
           </Link>
-          <p className="text-sm font-light w-full  ">
-            <span className="font-bold text-center">
+          <p className="text-sm text-gray-500 font-medium w-full  ">
+            <span className="font-bold text-gray-900 text-center">
               Shop Smart. Shop Fast. Only at Quick Pick!
             </span>
             <br />
@@ -29,17 +28,17 @@ const FooterComp = () => {
             service.
           </p>
         </div>
-        <div className="flex flex-col justify-evenly  ">
-          <h2 className="font-bold ">COMPANY</h2>
+        <div className="flex flex-col gap-3 text-gray-500">
+          <h2 className="font-bold text-gray-900">COMPANY</h2>
           <NavLink to="/" onClick={()=> (window.scrollTo(0, 0))}> Home</NavLink>
-          <Link to="/about"> About Us</Link>
-          <Link to="/contact"> Contact </Link>
-          <Link to="/policy">Privacy Policy</Link>
+          <Link to="/about"  className="hover:text-gray-900"> About Us</Link>
+          <Link to="/contact" className="hover:text-gray-900"> Contact </Link>
+          <Link to="/policy" className="hover:text-gray-900">Privacy Policy</Link>
         </div>
-        <div className="flex flex-col justify-evenly ">
-          <h2 className="font-bold">GET IN TOUCH</h2>
-          <a href="tel:07978112145"> +91 7978112145</a>
-          <a href="mailto:soumyapanda780@gmail.com">quickpick@gmail.com</a>
+        <div className="flex flex-col gap-3 text-gray-500 ">
+          <h2 className="font-bold text-gray-900">GET IN TOUCH</h2>
+          <a className="hover:text-gray-900" href="tel:07978112145"> +91 7978112145</a>
+          <a className="hover:text-gray-900" href="mailto:soumyapanda780@gmail.com">quickpick@gmail.com</a>
         </div>
       </div>
       <div className="text-center text-sm mt-10 py-5 border-t border-gray-300">
