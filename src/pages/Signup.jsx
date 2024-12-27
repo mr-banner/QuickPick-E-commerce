@@ -24,7 +24,7 @@ function Signup() {
   return notNewUser ? (
     <Login />
   ) : (
-    <div className="sm:h-screen absolute sm:relative top-[30%] right-1 sm:top-0 sm:right-0 w-full flex justify-center items-center bg-[#fffefe]">
+    <div className="sm:h-screen absolute sm:relative top-[13%] right-1 sm:top-0 sm:right-0 w-full flex justify-center items-center bg-[#fffefe]">
       <div className="border-2 border-gray-300 flex flex-col md:flex-row h-3/4 w-3/4 items-center bg-[#f9f8f7] shadow-md rounded-lg">
         
 

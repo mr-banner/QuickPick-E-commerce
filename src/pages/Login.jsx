@@ -19,7 +19,7 @@ const Login = () => {
   return newUser ? (
     <Signup />
   ) : (
-    <div className="sm:h-screen absolute sm:relative top-[30%] right-1 sm:right-0 sm:top-0 w-full flex md:flex-col justify-center items-center bg-[#fffefe]">
+    <div className="sm:h-screen absolute sm:relative top-[13%] right-1 sm:right-0 sm:top-0 w-full flex md:flex-col justify-center items-center bg-[#fffefe]">
       <div className="border-2 border-gray-300 flex flex-col md:flex-row h-3/4 w-3/4 items-center bg-[#f9f8f7] shadow-md rounded-lg">
         <div className="w-full md:w-1/2 p-8">
           <h2 className="text-center font-bold text-2xl mb-6">Login to your account</h2>
