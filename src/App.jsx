@@ -14,13 +14,14 @@ import FooterComp from "./components/FooterComp";
 import ScrollToTop from "./components/ScrollToTop";
 import SearchBar from './components/SearchBar'
 import Policy from "./pages/Policy";
+import AdminLogin from "./pages/AdminLogin";
 
 
 const App = () => {
   const location = useLocation();
   return (
-    <div className="px-4 sm:px[5vw] md:px-[7vw] lg:px[9vw]">
-      {!location.pathname.includes('policy') && !location.pathname.includes('login')  && <Navbar />}
+    <div className={`${!admin ? "px-4" : "px-0"} ${!admin ? "sm:px-[5vw]" : "px-0"} ${!admin ? "md:px-[7vw]" : "px-0"} ${!admin ? "lg:px[9vw]" : "px-0"} `}>
+      {!location.pathname.includes('policy') && !location.pathname.includes('login') && <Navbar />}
       <SearchBar/>
       <ScrollToTop />
       <Routes>
@@ -34,8 +35,9 @@ const App = () => {
         <Route path="/place-order" element={<PlaceOrder />} />
         <Route path="/order" element={<Orders />} />
         <Route path="/policy" element={<Policy />} />
+        <Route path="/admin-login" element={<AdminLogin /> } />
       </Routes>
-      {!location.pathname.includes('policy') && !location.pathname.includes('login') && <FooterComp />}
+      {!location.pathname.includes('policy') && !location.pathname.includes('login')  && <FooterComp />}
     </div>
   );
 };
