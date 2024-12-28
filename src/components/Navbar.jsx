@@ -12,7 +12,7 @@ const Navbar = () => {
   const location = useLocation();
   const navigate = useNavigate();
   return (
-    <div className="flex justify-between items-center sm:py-4 font-medium">
+    <div className="flex justify-between items-center sm:py-2 font-medium">
       <Link to="/">
       <img
         src={logo}
@@ -38,7 +38,7 @@ const Navbar = () => {
           <hr className="w-2/4 border-none h-[1.5px] bg-gray-700 hidden" />
         </NavLink>
       </ul>
-      <div className="flex justify-center gap-6">
+      <div className="flex justify-center items-center gap-6">
         {location.pathname.includes("collection") && (
         <img
           className="w-5 object-contain cursor-pointer"
@@ -46,7 +46,9 @@ const Navbar = () => {
           alt="search icon"
           onClick={()=>setShowSearch(true)}
         />)}
-
+          <NavLink className="text-md sm:block hidden font-normal shadow-lg  text-gray-800 border hover:border-gray-950 border-gray-400 p-[8px] rounded-3xl" to="/admin-login">
+            Admin Login
+          </NavLink>
         <div className="group relative">
           <img
             className="w-5 object-contain cursor-pointer"
@@ -57,7 +59,7 @@ const Navbar = () => {
         </div>
         <Link to="/cart" className="relative cursor-pointer">
           <img src={assets.cart_icon} className="w-5 min-w-5" alt="cart" />
-          <p className="absolute right-[-5px] w-4 bottom-[-5px] rounded-full bg-black text-white text-center leading-4 aspect-square text-[9px]">10</p>
+          <p className="absolute right-[-5px] -bottom-[8px] w-4 rounded-full bg-black text-white text-center leading-4 aspect-square text-[9px]">10</p>
         </Link>
         <img onClick={()=>{setToggle(!toggle)}} src={assets.menu_icon} className="w-6 cursor-pointer sm:hidden" alt="" />
       </div>
