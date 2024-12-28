@@ -19,6 +19,7 @@ import AdminLogin from "./pages/AdminLogin";
 
 const App = () => {
   const location = useLocation();
+  const admin = location.pathname.includes('admin');
   return (
     <div className={`${!admin ? "px-4" : "px-0"} ${!admin ? "sm:px-[5vw]" : "px-0"} ${!admin ? "md:px-[7vw]" : "px-0"} ${!admin ? "lg:px[9vw]" : "px-0"} `}>
       {!location.pathname.includes('policy') && !location.pathname.includes('login') && <Navbar />}
