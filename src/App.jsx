@@ -15,14 +15,17 @@ import ScrollToTop from "./components/ScrollToTop";
 import SearchBar from './components/SearchBar'
 import Policy from "./pages/Policy";
 import AdminLogin from "./pages/AdminLogin";
+import ProductCards from "./components/ProductCards";
 
 
 const App = () => {
   const location = useLocation();
   const admin = location.pathname.includes('admin');
+  const order = location.pathname.includes('order')
   return (
-    <div className={`${!admin ? "px-4" : "px-0"} ${!admin ? "sm:px-[5vw]" : "px-0"} ${!admin ? "md:px-[7vw]" : "px-0"} ${!admin ? "lg:px[9vw]" : "px-0"} `}>
-      {!location.pathname.includes('policy') && !location.pathname.includes('login') && <Navbar />}
+    <div className={`${!admin && !order ? "px-4" : "px-0"} ${!admin && !order ? "sm:px-[5vw]" : "px-0"} ${!admin && !order ? "md:px-[7vw]" : "px-0"} ${!admin && !order ? "lg:px[9vw]" : "px-0"} `}>
+
+      {!location.pathname.includes('policy') && !location.pathname.includes('login') && !location.pathname.includes('order') && <Navbar />}
       <SearchBar/>
       <ScrollToTop />
       <Routes>
@@ -37,8 +40,12 @@ const App = () => {
         <Route path="/order" element={<Orders />} />
         <Route path="/policy" element={<Policy />} />
         <Route path="/admin-login" element={<AdminLogin /> } />
+        <Route path="/product-card" element={<ProductCards /> } />
+
+
+
       </Routes>
-      {!location.pathname.includes('policy') && !location.pathname.includes('login')  && <FooterComp />}
+      {!location.pathname.includes('policy') && !location.pathname.includes('login')  &&  !location.pathname.includes('order') && <FooterComp />}
     </div>
   );
 };

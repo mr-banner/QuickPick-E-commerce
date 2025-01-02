@@ -21,19 +21,19 @@ const Navbar = () => {
       />
       </Link>
       <ul className="hidden sm:flex gap-5 text-sm text-gray-600">
-        <NavLink to="/" className="flex flex-col items-center gap-1">
+        <NavLink to="/" className={({isActive})=>`${isActive?"text-[#da9a5a]":"text-gray-700"} flex flex-col items-center gap-1 hover:text-[#da9a5a] transition-colors duration-300`}>
           <p>HOME</p>
           <hr className="w-2/4 border-none h-[1.5px] bg-gray-700 hidden" />
         </NavLink>
-        <NavLink to="/collection" className="flex flex-col items-center gap-1">
+        <NavLink to="/collection" className={({isActive})=>`${isActive?"text-[#da9a5a]":"text-gray-700"} flex flex-col items-center gap-1 hover:text-[#da9a5a] transition-colors duration-300`}>
           <p>COLLECTION</p>
           <hr className="w-2/4 border-none h-[1.5px] bg-gray-700 hidden" />
         </NavLink>
-        <NavLink to="/about" className="flex flex-col items-center gap-1">
+        <NavLink to="/about" className={({isActive})=>`${isActive?"text-[#da9a5a]":"text-gray-700"} flex flex-col items-center gap-1 hover:text-[#da9a5a] transition-colors duration-300`}>
           <p>ABOUT</p>
           <hr className="w-2/4 border-none h-[1.5px] bg-gray-700 hidden" />
         </NavLink>
-        <NavLink to="/contact" className="flex flex-col items-center gap-1">
+        <NavLink to="/contact" className={({isActive})=>`${isActive?"text-[#da9a5a]":"text-gray-700"} flex flex-col items-center gap-1 hover:text-[#da9a5a] transition-colors duration-300`}>
           <p>CONTACT</p>
           <hr className="w-2/4 border-none h-[1.5px] bg-gray-700 hidden" />
         </NavLink>
@@ -57,7 +57,7 @@ const Navbar = () => {
             onClick={() => navigate("/login")}
           />
         </div>
-        <Link to="/cart" className="relative cursor-pointer">
+        <Link to="/order" className="relative cursor-pointer">
           <img src={assets.cart_icon} className="w-5 min-w-5" alt="cart" />
           <p className="absolute right-[-5px] -bottom-[8px] w-4 rounded-full bg-black text-white text-center leading-4 aspect-square text-[9px]">10</p>
         </Link>
