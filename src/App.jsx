@@ -16,6 +16,8 @@ import SearchBar from './components/SearchBar'
 import Policy from "./pages/Policy";
 import AdminLogin from "./pages/AdminLogin";
 import ProductCards from "./components/ProductCards";
+import { ToastContainer, toast } from "react-toastify";
+
 
 
 const App = () => {
@@ -24,7 +26,7 @@ const App = () => {
   const order = location.pathname.includes('order')
   return (
     <div className={`${!admin && !order ? "px-4" : "px-0"} ${!admin && !order ? "sm:px-[5vw]" : "px-0"} ${!admin && !order ? "md:px-[7vw]" : "px-0"} ${!admin && !order ? "lg:px[9vw]" : "px-0"} `}>
-
+      <ToastContainer />
       {!location.pathname.includes('policy') && !location.pathname.includes('login') && !location.pathname.includes('order') && <Navbar />}
       <SearchBar/>
       <ScrollToTop />

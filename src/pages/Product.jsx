@@ -7,7 +7,7 @@ import Title from "../components/Title";
 
 const Product = () => {
   const { productId } = useParams();
-  const { products, currency } = useContext(ShopContext);
+  const { products, currency ,addToCart } = useContext(ShopContext);
   const [productData, setProductData] = useState(null);
   const [image, setImage] = useState("");
   const [size, setSize] = useState("");
@@ -21,7 +21,7 @@ const Product = () => {
       }
     });
   };
-  // console.log(size);
+  console.log(size);
 
   useEffect(() => {
     fetchProduct();
@@ -84,7 +84,9 @@ const Product = () => {
               ))}
             </div>
           </div>
-          <button className="bg-slate-950 text-slate-100 sm:text-base text-sm px-8 py-3 mt-4 shadow-xl active:bg-gray-300 active:text-gray-950 hover:bg-gray-300 hover:text-gray-950">
+          <button 
+            onClick={() => addToCart(productData._id ,size)}
+          className="bg-slate-950 text-slate-100 sm:text-base text-sm px-8 py-3 mt-4 shadow-xl active:bg-gray-300 active:text-gray-950 hover:bg-gray-300 hover:text-gray-950">
             ADD TO CART
           </button>
           <div className="border-t mt-8">
