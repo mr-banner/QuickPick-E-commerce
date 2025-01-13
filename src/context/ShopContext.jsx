@@ -21,6 +21,7 @@ const navigate = useNavigate()
       toast.error("Select product size");
       return;
     }
+    toast.success("Added to cart successfully")
    
     
     let cartData = structuredClone(cartItem);
