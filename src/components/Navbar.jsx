@@ -8,7 +8,7 @@ import { useNavigate } from "react-router-dom";
 
 const Navbar = () => {
   const [toggle, setToggle] = React.useState(false);
-  const {setShowSearch} = React.useContext(ShopContext);
+  const {setShowSearch,getCartCount} = React.useContext(ShopContext);
   const location = useLocation();
   const navigate = useNavigate();
   return (
@@ -59,7 +59,9 @@ const Navbar = () => {
         </div>
         <Link to="/cart" className="relative cursor-pointer">
           <img src={assets.cart_icon} className="w-5 min-w-5" alt="cart" />
-          <p className="absolute right-[-5px] -bottom-[8px] w-4 rounded-full bg-black text-white text-center leading-4 aspect-square text-[9px]">10</p>
+          <p className="absolute right-[-5px] -bottom-[8px] w-4 rounded-full bg-black text-white text-center leading-4 aspect-square text-[9px]">
+          {getCartCount()}
+          </p>
         </Link>
         <img onClick={()=>{setToggle(!toggle)}} src={assets.menu_icon} className="w-6 cursor-pointer sm:hidden" alt="" />
       </div>
