@@ -6,14 +6,14 @@ export const ShopContextProvider = (props) => {
   const darkTheme = false;
 
   const currency = "$";
-  const delivey_fee = 10;
+  const delivery_fee = 10;
   const [search, setSearch] = useState("");
   const [showSearch, setShowSearch] = useState(false);
 
   const value = {
     products,
     currency,
-    delivey_fee,
+    delivery_fee,
     darkTheme,
     search,
     setSearch,

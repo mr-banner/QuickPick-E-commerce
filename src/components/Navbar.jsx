@@ -57,7 +57,7 @@ const Navbar = () => {
             onClick={() => navigate("/login")}
           />
         </div>
-        <Link to="/order" className="relative cursor-pointer">
+        <Link to="/cart" className="relative cursor-pointer">
           <img src={assets.cart_icon} className="w-5 min-w-5" alt="cart" />
           <p className="absolute right-[-5px] -bottom-[8px] w-4 rounded-full bg-black text-white text-center leading-4 aspect-square text-[9px]">10</p>
         </Link>
