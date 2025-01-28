@@ -3,6 +3,7 @@ import { assets } from "../assets/assets";
 import ProductCards from "../components/ProductCards";
 import { ShopContext } from "../context/ShopContext";
 import Title from "../components/Title";
+import { Link } from "react-router-dom";
 const Orders = () => {
   const { products } = useContext(ShopContext);
   const copyOne = products.slice(0, 1);
@@ -67,14 +68,18 @@ const Orders = () => {
     <div className="min-h-screen bg-gray-50">
       {/* Header */}
       <div className="w-full flex justify-between items-center sm:px-4 shadow-md mb-6">
-        <img
-          src={assets.logo}
-          alt="logo"
-          className="sm:w-[163px] sm:h-[103px] w-[115px] h-[95px] object-contain relative -top-[7px]"
-        />
+        <Link to="/">
+          <img
+            src={assets.logo}
+            alt="logo"
+            className="sm:w-[163px] sm:h-[103px] w-[115px] h-[95px] object-contain relative -top-[7px]"
+          />
+        </Link>
         <div className="flex gap-3 items-center">
-        <img className="h-6" src={assets.profile_icon} alt="" />
-        <h2 className="text-right text-lg mr-1 sm:mr-0 font-semibold">Hello, Ashutosh</h2>
+          <img className="h-6" src={assets.profile_icon} alt="" />
+          <h2 className="text-right text-lg mr-1 sm:mr-0 font-semibold">
+            Hello, Ashutosh
+          </h2>
         </div>
       </div>
       <div className="text-center text-2xl mt-3">
