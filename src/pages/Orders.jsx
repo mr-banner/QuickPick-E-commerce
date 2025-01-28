@@ -1,14 +1,32 @@
-import React, { useContext, useState } from "react";
+import React, { useContext, useState, useEffect } from "react";
 import { assets } from "../assets/assets";
 import ProductCards from "../components/ProductCards";
 import { ShopContext } from "../context/ShopContext";
 import Title from "../components/Title";
-import { Link } from "react-router-dom";
+import ScreenLoadingIcon from "../components/ScreenLoadingIcon"; // Import loading icon
+
 const Orders = () => {
   const { products } = useContext(ShopContext);
-  const copyOne = products.slice(0, 1);
+  const [loading, setLoading] = useState(true);
 
-  // products.map((item)=> setProduct(item));
+  // Simulate data fetching or delay
+  useEffect(() => {
+    const fetchData = () => {
+      setLoading(true);
+      // Simulate loading delay (remove this if using real API)
+      setTimeout(() => {
+        setLoading(false);
+      }, 1500); // Adjust time to your real fetching duration
+    };
+
+    fetchData();
+  }, []);
+
+  if (loading) {
+    return <ScreenLoadingIcon />; // Show the loading screen until data is ready
+  }
+
+  const copyOne = products.slice(0, 1);
   const testImg = copyOne[0].image[0];
 
   const products2 = [
@@ -68,13 +86,11 @@ const Orders = () => {
     <div className="min-h-screen bg-gray-50">
       {/* Header */}
       <div className="w-full flex justify-between items-center sm:px-4 shadow-md mb-6">
-        <Link to="/">
-          <img
-            src={assets.logo}
-            alt="logo"
-            className="sm:w-[163px] sm:h-[103px] w-[115px] h-[95px] object-contain relative -top-[7px]"
-          />
-        </Link>
+        <img
+          src={assets.logo}
+          alt="logo"
+          className="sm:w-[163px] sm:h-[103px] w-[115px] h-[95px] object-contain relative -top-[7px]"
+        />
         <div className="flex gap-3 items-center">
           <img className="h-6" src={assets.profile_icon} alt="" />
           <h2 className="text-right text-lg mr-1 sm:mr-0 font-semibold">

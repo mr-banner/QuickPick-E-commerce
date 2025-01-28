@@ -1,27 +1,44 @@
 import React from "react";
+import { motion } from "framer-motion";
 
 function ScreenLoadingIcon() {
   return (
-    <div className="absolute inset-0 flex justify-center items-center bg-gray-100 bg-opacity-50 z-50">
-      <div className="relative flex flex-col items-center">
-        {/* Falling Items */}
-        <div className="absolute -top-12 space-y-4">
-          <div className="w-4 h-4 bg-blue-500 rounded-full animate-drop1"></div>
-          <div className="w-5 h-5 bg-red-500 rounded-lg animate-drop2"></div>
-          <div className="w-4 h-6 bg-yellow-500 rounded animate-drop3"></div>
+    <div className="flex items-center justify-center min-h-screen bg-brown-700">
+      <motion.div
+        className="relative flex flex-col items-center"
+        animate={{
+          rotate: [0, 15, 0], // Shopping bag swaying
+        }}
+        transition={{
+          repeat: Infinity,
+          duration: 1.5,
+          ease: "easeInOut",
+        }}
+      >
+        {/* Coffee-Colored Shopping Bag */}
+        <div className="w-24 h-28 bg-[#e8bd7c] rounded-t-lg shadow-xl relative">
+          {/* Upward Circular Handle */}
+          <div className="absolute top-[-27px] left-[15px] w-16 h-8 bg-transparent border-4 border-t-transparent border-[#e3b269] rounded-full transform rotate-180 overflow-hidden" />
+          <div className="absolute h-2 w-2 rounded-full bg-white left-[5px] top-[5px]" />
+          <div className="absolute h-2 w-2 rounded-full bg-white right-[5px] top-[5px]" />
+          {/* <div className="text-[#78533c] text-[18px] font-bold absolute left-2 bottom-2">Quickpick</div> */}
         </div>
 
-       
-        <div className="relative w-20 h-24 bg-[#ead0a2] rounded-b-lg shadow-lg border-4 border-[#b6832b] flex flex-col items-center justify-end">
-         
-          <div className="absolute top-[-8px] left-0 right-0 mx-auto w-[50px] h-[16px] bg-transparent border-t-2 border-[#b6832b] rounded-full"></div>
-
-          
-          <div className="absolute inset-0 flex items-center justify-center text-[#b6832b] font-bold text-sm">
-            QuickPick
-          </div>
-        </div>
-      </div>
+        {/* Quickpick Text */}
+        <motion.div
+          className="text-[#3E2B1F] text-[18px] font-bold absolute bottom-2"
+          animate={{
+            opacity: [0, 1, 0],
+          }}
+          transition={{
+            repeat: Infinity,
+            duration: 2,
+            ease: "easeInOut",
+          }}
+        >
+          Quickpick
+        </motion.div>
+      </motion.div>
     </div>
   );
 }
