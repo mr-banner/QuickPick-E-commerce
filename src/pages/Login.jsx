@@ -19,30 +19,30 @@ const Login = () => {
   return newUser ? (
     <Signup />
   ) : (
-    <div className="sm:h-screen absolute sm:relative top-[13%] right-1 sm:right-0 sm:top-0 w-full flex md:flex-col justify-center items-center bg-[#fffefe]">
-      <div className="border-2 border-gray-300 flex flex-col md:flex-row h-3/4 w-3/4 items-center bg-[#f9f8f7] shadow-md rounded-lg">
+    <div className="sm:h-screen absolute sm:relative top-[13%] right-1 sm:right-0 sm:top-0 w-full flex md:flex-col justify-center items-center bg-[#fffefe] dark:bg-slate-900">
+      <div className="border-2 border-gray-300 dark:border-gray-950 flex flex-col md:flex-row h-3/4 w-3/4 items-center bg-[#f9f8f7] dark:bg-slate-800 shadow-md rounded-lg">
         <div className="w-full md:w-1/2 p-8">
-          <h2 className="text-center font-bold text-2xl mb-6">Login to your account</h2>
+          <h2 className="text-center font-bold text-2xl mb-6 dark:text-gray-100">Login to your account</h2>
           <form className="flex flex-col space-y-4">
             <label className="flex flex-col">
-              <span className="text-gray-700">Email</span>
+              <span className="text-gray-700 dark:text-gray-300">Email</span>
               <input
                 type="email"
                 placeholder="dancing.potato@hellomail.com"
-                className="border border-gray-300 rounded-lg p-2 mt-1 focus:outline-none focus:ring-2 focus:ring-[#b37f5a]"
+                className="border border-gray-300 dark:border-gray-600 dark:text-white dark:bg-black rounded-lg p-2 mt-1 focus:outline-none focus:ring-2 focus:ring-[#b37f5a] dark:focus:ring-[#388aee] "
               />
             </label>
             <label className="flex flex-col relative">
-              <span className="text-gray-700">Password</span>
+              <span className="text-gray-700 dark:text-gray-300">Password</span>
               <input
                 type={showPassword ? "text" : "password"}
                 placeholder="SuperSecure123!"
-                className="border border-gray-300 rounded-lg p-2 mt-1 focus:outline-none focus:ring-2 focus:ring-[#b37f5a]"
+                className="border border-gray-300 dark:border-gray-600 rounded-lg p-2 mt-1 focus:outline-none focus:ring-2 focus:ring-[#b37f5a] dark:text-white dark:bg-black dark:focus:ring-[#388aee]"
               />
               <button
                 type="button"
                 onClick={togglePasswordVisibility}
-                className="absolute inset-y-0 right-3 top-7 flex items-center"
+                className="absolute inset-y-0 right-3 top-7 flex items-center "
               >
                 {showPassword ? (
                   <svg
@@ -51,7 +51,7 @@ const Login = () => {
                     viewBox="0 0 24 24"
                     strokeWidth={1.5}
                     stroke="currentColor"
-                    className="h-6 w-6 text-gray-800"
+                    className="h-6 w-6 text-gray-800 dark:text-gray-50"
                   >
                     <path
                       strokeLinecap="round"
@@ -66,7 +66,7 @@ const Login = () => {
                     viewBox="0 0 24 24"
                     strokeWidth={1.5}
                     stroke="currentColor"
-                    className="h-5 w-6 text-gray-800"
+                    className="h-5 w-6 text-gray-800 dark:text-gray-50"
                   >
                     <path
                       strokeLinecap="round"
@@ -80,11 +80,11 @@ const Login = () => {
 
             <a
               href="/forgot-password"
-              className="text-sm text-red-600 hover:underline self-end"
+              className="text-sm text-red-600 dark:text-red-500 hover:underline self-end"
             >
               Forgot Password?
             </a>
-            <button className="bg-[#b37f5a] text-white rounded-lg py-2 hover:bg-[#6F4E37]">
+            <button className="bg-[#b37f5a] dark:bg-[#388aee] text-white rounded-lg py-2 hover:bg-[#6F4E37] dark:hover:bg-[#21518c]">
               Login Now
             </button>
           </form>
@@ -105,14 +105,19 @@ const Login = () => {
           </div> */}
         </div>
 
-        <div className="sm:flex w-full md:w-1/2 h-full hidden p-8 text-center flex-col items-center justify-center bg-[#fee8db]">
+        <div className="sm:flex w-full md:w-1/2 h-full hidden p-8 text-center flex-col items-center justify-center bg-[#fee8db] dark:bg-slate-950">
           <img
-            className="h-24  mb-4 relative bottom-16"
+            className="h-24  mb-4 relative bottom-16 dark:hidden"
             src={assets.logo}
             alt="Quickpick Logo"
           />
+          <img
+            className="h-24  mb-4 relative bottom-16 hidden dark:block"
+            src={assets.dark_icon}
+            alt="Quickpick Logo"
+          />
           <h3 className="font-bold text-xl mb-2 relative bottom-14">WELCOME BACK!</h3>
-          <p className="text-gray-700 relative bottom-12">
+          <p className="text-gray-700 dark:text-gray-300 relative bottom-12">
             You're just one step away from unlocking your perfect style with
             Quickpick! Sign in now to explore the latest trends, curated
             collections, and exclusive deals tailored just for you. Your fashion

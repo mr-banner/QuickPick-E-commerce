@@ -4,6 +4,7 @@ import ProductCards from "../components/ProductCards";
 import { ShopContext } from "../context/ShopContext";
 import Title from "../components/Title";
 import ScreenLoadingIcon from "../components/ScreenLoadingIcon"; // Import loading icon
+import { Link } from "react-router-dom"; // Import Link for navigation
 
 const Orders = () => {
   const { products } = useContext(ShopContext);
@@ -83,14 +84,21 @@ const Orders = () => {
   ];
 
   return (
-    <div className="min-h-screen bg-gray-50">
+    <div className="min-h-screen bg-gray-50 dark:bg-gray-900 dark:text-gray-200">
       {/* Header */}
-      <div className="w-full flex justify-between items-center sm:px-4 shadow-md mb-6">
-        <img
-          src={assets.logo}
-          alt="logo"
-          className="sm:w-[163px] sm:h-[103px] w-[115px] h-[95px] object-contain relative -top-[7px]"
-        />
+      <div className="w-full flex justify-between items-center sm:px-4 shadow-md dark:shadow-gray-800 mb-6">
+        <Link to="/"> {/* Wrap the logo with Link component */}
+          <img
+            src={assets.logo}
+            alt="logo"
+            className="sm:w-[163px] sm:h-[103px] w-[115px] h-[95px] object-contain relative -top-[7px] dark:hidden"
+          />
+          <img
+            src={assets.dark_icon}
+            alt="logo"
+            className="sm:w-[163px] sm:h-[103px] w-[115px] h-[95px] object-contain relative -top-[7px] hidden dark:block"
+          />
+        </Link>
         <div className="flex gap-3 items-center">
           <img className="h-6" src={assets.profile_icon} alt="" />
           <h2 className="text-right text-lg mr-1 sm:mr-0 font-semibold">

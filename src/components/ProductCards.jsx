@@ -24,7 +24,7 @@ function ProductCards({ product }) {
   }
 
   return (
-    <div className="flex w-full border gap-2 border-gray-300 p-4 rounded-lg bg-white drop-shadow-md mb-4">
+    <div className="flex w-full border gap-2 border-gray-300 dark:border-gray-600 p-4 rounded-lg bg-white dark:bg-slate-900 drop-shadow-md mb-4">
       {/* First Column: Product Image */}
       <div className="sm:w-1/4 w-3/6 flex items-center justify-center">
       <NavLink to={`/product/${_id}`}>
@@ -54,7 +54,7 @@ function ProductCards({ product }) {
             <p className="text-sm font-semibold">{size}</p>
           </div>
           <div className="flex gap-2 flex-row mt-1">
-            <p className="sm:text-sm text-[10px] text-gray-500">Ordered on: {orderDate}</p>
+            <p className="sm:text-sm text-[10px] text-gray-500 dark:text-gray-300">Ordered on: {orderDate}</p>
           </div>
         </div>
       </div>

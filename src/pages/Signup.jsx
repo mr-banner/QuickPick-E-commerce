@@ -24,20 +24,25 @@ function Signup() {
   return notNewUser ? (
     <Login />
   ) : (
-    <div className="sm:h-screen absolute sm:relative top-[13%] right-1 sm:top-0 sm:right-0 w-full flex justify-center items-center bg-[#fffefe]">
-      <div className="border-2 border-gray-300 flex flex-col md:flex-row h-3/4 w-3/4 items-center bg-[#f9f8f7] shadow-md rounded-lg">
+    <div className="sm:h-screen absolute sm:relative top-[13%] right-1 sm:top-0 sm:right-0 w-full flex justify-center items-center bg-[#fffefe] dark:bg-gray-900">
+      <div className="border-2 border-gray-300 dark:border-gray-950 flex flex-col md:flex-row h-3/4 w-3/4 items-center bg-[#f9f8f7] dark:bg-slate-800 shadow-md rounded-lg">
         
 
-        <div className="w-full md:w-1/2 h-full p-8  text-center sm:flex hidden flex-col items-center justify-center bg-[#fee8db]">
+        <div className="w-full md:w-1/2 h-full p-8  text-center sm:flex hidden flex-col items-center justify-center bg-[#fee8db] dark:bg-gray-950">
           <img
-            className="h-24  mb-4 relative bottom-16"
+            className="h-24  mb-4 relative bottom-16 dark:hidden"
             src={assets.logo}
+            alt="Quickpick Logo"
+          />
+          <img
+            className="h-24  mb-4 relative bottom-16 hidden dark:block"
+            src={assets.dark_icon}
             alt="Quickpick Logo"
           />
           <h3 className="font-bold text-xl mb-2 relative bottom-14">
             "Sign up and explore the latest trends!"
           </h3>
-          <p className="text-gray-700 relative bottom-12">
+          <p className="text-gray-700 dark:text-gray-300 relative bottom-12">
             Your fashion journey starts here! Unlock curated collections and
             discover the best in style. Dive into a world of the latest trends,
             timeless pieces, and exclusive designs tailored just for you.
@@ -49,7 +54,7 @@ function Signup() {
 
 
 
-        <div className="w-full md:w-1/2 p-8">
+        <div className="w-full md:w-1/2 p-8 ">
           <h2 className="text-center font-bold text-3xl ">Sign up</h2>
           <p className="text-center font-bold text-sm mb-6">
             Create your account
@@ -63,7 +68,7 @@ function Signup() {
                   viewBox="0 0 24 24"
                   strokeWidth={1.5}
                   stroke="currentColor"
-                  className="h-6 w-6 text-gray-700"
+                  className="h-6 w-6 text-gray-700 dark:text-gray-300"
                 >
                   <path
                     strokeLinecap="round"
@@ -75,7 +80,7 @@ function Signup() {
               <input
                 type="text"
                 placeholder="Username"
-                className="border border-gray-300 rounded-lg p-2 pl-10 mt-1 focus:outline-none focus:ring-2 focus:ring-[#b37f5a] w-full"
+                className="border border-gray-300 rounded-lg p-2 pl-10 mt-1 focus:outline-none focus:ring-2 focus:ring-[#b37f5a] w-full dark:border-gray-600 dark:text-white dark:bg-black dark:focus:ring-[#388aee]"
               />
             </div>
 
@@ -87,7 +92,7 @@ function Signup() {
                   viewBox="0 0 24 24"
                   strokeWidth={1.5}
                   stroke="currentColor"
-                  className="h-6 w-6 text-gray-600"
+                  className="h-6 w-6 text-gray-600 dark:text-gray-300"
                 >
                   <path
                     strokeLinecap="round"
@@ -99,7 +104,7 @@ function Signup() {
               <input
                 type="email"
                 placeholder="Email"
-                className="border border-gray-300 rounded-lg p-2 pl-10 mt-1 focus:outline-none focus:ring-2 focus:ring-[#b37f5a] w-full"
+                className="border border-gray-300 rounded-lg p-2 pl-10 mt-1 focus:outline-none focus:ring-2 focus:ring-[#b37f5a] w-full dark:border-gray-600 dark:text-white dark:bg-black dark:focus:ring-[#388aee]"
               />
             </div>
 
@@ -111,7 +116,7 @@ function Signup() {
                   viewBox="0 0 24 24"
                   strokeWidth={1.5}
                   stroke="currentColor"
-                  className="h-5 w-6 text-gray-700"
+                  className="h-5 w-6 text-gray-700 dark:text-gray-300"
                 >
                   <path
                     strokeLinecap="round"
@@ -123,7 +128,7 @@ function Signup() {
               <input
                 type={showPassword ? "text" : "password"}
                 placeholder="Password"
-                className="border border-gray-300 rounded-lg p-2 pl-10 mt-1 focus:outline-none focus:ring-2 focus:ring-[#b37f5a] w-full"
+                className="border border-gray-300 rounded-lg p-2 pl-10 mt-1 focus:outline-none focus:ring-2 focus:ring-[#b37f5a] w-full dark:border-gray-600 dark:text-white dark:bg-black dark:focus:ring-[#388aee]"
               />
               <button
                 type="button"
@@ -136,7 +141,7 @@ function Signup() {
                   viewBox="0 0 24 24"
                   strokeWidth={1.5}
                   stroke="currentColor"
-                  className="h-5 w-6 text-gray-800"
+                  className="h-5 w-6 text-gray-800 dark:text-gray-300"
                 >
                   <path
                     strokeLinecap="round"
@@ -155,7 +160,7 @@ function Signup() {
                   viewBox="0 0 24 24"
                   strokeWidth={1.5}
                   stroke="currentColor"
-                  className="h-5 w-6 text-gray-700"
+                  className="h-5 w-6 text-gray-700 dark:text-gray-300"
                 >
                   <path
                     strokeLinecap="round"
@@ -167,7 +172,7 @@ function Signup() {
               <input
                 type={showConfirmPassword ? "text" : "password"} // Toggle between password and text for confirm password
                 placeholder="Confirm Password"
-                className="border mb-3 border-gray-300 rounded-lg p-2 mt-1 focus:outline-none focus:ring-2 focus:ring-[#b37f5a] w-full pl-10" // Added pl-10 to make room for the lock icon
+                className="border mb-3 border-gray-300 rounded-lg p-2 mt-1 focus:outline-none focus:ring-2 focus:ring-[#b37f5a] w-full pl-10 dark:border-gray-600 dark:text-white dark:bg-black dark:focus:ring-[#388aee]" // Added pl-10 to make room for the lock icon
               />
               <button
                 type="button"
@@ -180,7 +185,7 @@ function Signup() {
                   viewBox="0 0 24 24"
                   strokeWidth={1.5}
                   stroke="currentColor"
-                  className="h-5 w-6 text-gray-800"
+                  className="h-5 w-6 text-gray-800 dark:text-gray-300"
                 >
                   <path
                     strokeLinecap="round"
@@ -191,7 +196,7 @@ function Signup() {
               </button>
             </div>
 
-            <button className="bg-[#b37f5a] text-white rounded-lg py-2 hover:bg-[#6F4E37]">
+            <button className="bg-[#b37f5a] text-white rounded-lg py-2 hover:bg-[#6F4E37] dark:bg-[#388aee] dark:hover:bg-[#21518c]">
               Sign Up
             </button>
           </form>

@@ -5,18 +5,26 @@ import { Link, NavLink } from "react-router-dom";
 const FooterComp = () => {
   return (
     <>
-      <div className=" mt-16 grid sm:grid-cols-3 grid-cols-1 gap-y-6 sm:gap-x-36">
+      <div className="mt-16 grid sm:grid-cols-3 grid-cols-1 gap-y-6 sm:gap-x-36">
         <div className="flex flex-col gap-3 -mt-6">
           <Link to="/">
+            {/* Light mode logo */}
             <img
-              onClick={()=> (window.scrollTo(0,0))}
-              className="w-[160px] mb-3 relative top-[-20px] left-[80px] sm:left-[-19px] sm:top-0"
-              src={assets.logo}
-              alt=""
+              onClick={() => window.scrollTo(0, 0)}
+              className="w-[160px] mb-3 relative top-[-20px] left-[80px] sm:left-[-19px] sm:top-0 dark:hidden"
+              src={assets.logo} // light mode logo
+              alt="Logo"
+            />
+            {/* Dark mode logo */}
+            <img
+              onClick={() => window.scrollTo(0, 0)}
+              className="w-[200px] mb-3 relative top-[-20px] right-[80px]  sm:left-[-19px] sm:top-0 hidden dark:block"
+              src={assets.dark_icon} // dark mode logo
+              alt="Logo"
             />
           </Link>
-          <p className="text-sm text-gray-500 font-medium w-full  ">
-            <span className="font-bold text-gray-900 text-center">
+          <p className="text-sm text-gray-500 dark:text-gray-300 font-medium w-full">
+            <span className="font-bold text-gray-900 dark:text-gray-50 text-center">
               Shop Smart. Shop Fast. Only at Quick Pick!
             </span>
             <br />
@@ -28,17 +36,17 @@ const FooterComp = () => {
             service.
           </p>
         </div>
-        <div className="flex flex-col gap-3 text-gray-500">
-          <h2 className="font-bold text-gray-900">COMPANY</h2>
-          <NavLink to="/" onClick={()=> (window.scrollTo(0, 0))}> Home</NavLink>
-          <Link to="/about"  className="hover:text-gray-900"> About Us</Link>
-          <Link to="/contact" className="hover:text-gray-900"> Contact </Link>
-          <Link to="/policy" className="hover:text-gray-900">Privacy Policy</Link>
+        <div className="flex flex-col gap-3 text-gray-500 dark:text-gray-50">
+          <h2 className="font-bold text-gray-900 dark:text-gray-50">COMPANY</h2>
+          <NavLink to="/" onClick={() => window.scrollTo(0, 0)}> Home</NavLink>
+          <Link to="/about" className="hover:text-gray-900 dark:text-gray-50"> About Us</Link>
+          <Link to="/contact" className="hover:text-gray-900 dark:text-gray-50"> Contact </Link>
+          <Link to="/policy" className="hover:text-gray-900 dark:text-gray-50">Privacy Policy</Link>
         </div>
-        <div className="flex flex-col gap-3 text-gray-500 ">
-          <h2 className="font-bold text-gray-900">GET IN TOUCH</h2>
-          <a className="hover:text-gray-900" href="tel:07978112145"> +91 7978112145</a>
-          <a className="hover:text-gray-900" href="mailto:soumyapanda780@gmail.com">quickpick@gmail.com</a>
+        <div className="flex flex-col gap-3 text-gray-500 dark:text-gray-50">
+          <h2 className="font-bold text-gray-900 dark:text-gray-50">GET IN TOUCH</h2>
+          <a className="hover:text-gray-900 dark:text-gray-50" href="tel:0680-324524">0680-324524</a>
+          <a className="hover:text-gray-900 dark:text-gray-50" href="mailto:quickpick@gmail.com">quickpick@gmail.com</a>
         </div>
       </div>
       <div className="text-center text-sm mt-10 py-5 border-t border-gray-300">

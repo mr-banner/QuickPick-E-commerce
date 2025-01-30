@@ -9,22 +9,27 @@ function AdminLogin() {
   };
 
   return (
-    <div className="min-h-screen flex flex-col items-center justify-center bg-[#f6f0e6]">
+    <div className="min-h-screen flex flex-col items-center justify-center bg-[#f6f0e6] dark:bg-gray-900">
       {/* Header Section */}
       <div className="text-center mb-6 relative bottom-16">
         <img
           src={assets.logo}
           alt="Admin Logo"
-          className="h-20 mx-auto w-40 mb-0"
+          className="h-20 mx-auto w-40 mb-0 dark:hidden"
+        />
+        <img
+          src={assets.dark_icon}
+          alt="Admin Logo"
+          className="h-20 mx-auto w-40 mb-0 hidden dark:block"
         />
       </div>
 
       {/* Login Form Section */}
-      <div className="w-full max-w-md bg-white shadow-md rounded-lg p-8 relative bottom-16">
-        <h2 className="text-xl font-bold text-gray-800 text-center mb-1">
+      <div className="w-full max-w-md bg-white dark:bg-black shadow-md rounded-lg p-8 relative bottom-16">
+        <h2 className="text-xl font-bold text-gray-800 dark:text-gray-50 text-center mb-1">
           Admin Panel
         </h2>
-        <p className="text-sm text-gray-600 text-center mb-6">
+        <p className="text-sm text-gray-600 dark:text-gray-300 text-center mb-6">
           Enter your credentials to access your account.
         </p>
         <form className="space-y-4">
@@ -33,7 +38,7 @@ function AdminLogin() {
             <span className="absolute inset-y-0 left-3 flex items-center">
               <svg
                 xmlns="http://www.w3.org/2000/svg"
-                className="h-5 w-5 text-gray-700"
+                className="h-5 w-5 text-gray-700 dark:text-gray-300"
                 viewBox="0 0 24 24"
                 fill="none"
                 stroke="currentColor"
@@ -48,7 +53,7 @@ function AdminLogin() {
             <input
               type="email"
               placeholder="Enter your email"
-              className="w-full pl-10 pr-4 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-[#88662b]"
+              className="w-full pl-10 pr-4 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-[#88662b] dark:bg-gray-900 dark:focus:ring-[#388aee] dark:border-gray-700"
               required
             />
           </div>
@@ -58,7 +63,7 @@ function AdminLogin() {
             <span className="absolute inset-y-0 left-3 flex items-center">
               <svg
                 xmlns="http://www.w3.org/2000/svg"
-                className="h-5 w-5 text-gray-700"
+                className="h-5 w-5 text-gray-700 dark:text-gray-300"
                 viewBox="0 0 24 24"
                 fill="none"
                 stroke="currentColor"
@@ -73,7 +78,7 @@ function AdminLogin() {
             <input
               type={showPassword ? "text" : "password"}
               placeholder="Enter your password"
-              className="w-full pl-10 pr-10 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-[#88662b]"
+              className="w-full pl-10 pr-10 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-[#88662b]  dark:bg-gray-900 dark:focus:ring-[#388aee] dark:border-gray-700"
               required
             />
             <span
@@ -83,7 +88,7 @@ function AdminLogin() {
               {showPassword ? (
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
-                  className="h-5 w-5 text-gray-700"
+                  className="h-5 w-5 text-gray-700 dark:text-gray-300"
                   viewBox="0 0 24 24"
                   fill="currentColor"
                 >
@@ -92,7 +97,7 @@ function AdminLogin() {
               ) : (
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
-                  className="h-5 w-5 text-gray-700"
+                  className="h-5 w-5 text-gray-700 dark:text-gray-300"
                   viewBox="0 0 24 24"
                   fill="none"
                   stroke="currentColor"
@@ -110,7 +115,7 @@ function AdminLogin() {
           {/* Submit Button */}
           <button
             type="submit"
-            className="w-full bg-[#ad8237] text-white py-2 rounded-lg hover:bg-[#725524] transition"
+            className="w-full bg-[#ad8237] text-white py-2 rounded-lg hover:bg-[#725524] transition dark:bg-[#388aee] dark:hover:bg-[#21518c]"
           >
             Sign In
           </button>
@@ -119,7 +124,7 @@ function AdminLogin() {
         {/* Forgot Password */}
         <div className="mt-4 text-sm text-gray-600 text-center">
           Forgot your password?{" "}
-          <span className="text-red-600 cursor-pointer hover:underline">
+          <span className="text-red-600 dark:text-red-500 cursor-pointer hover:underline">
             Reset Password
           </span>
         </div>

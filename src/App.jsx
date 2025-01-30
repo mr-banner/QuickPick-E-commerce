@@ -17,6 +17,7 @@ import Policy from "./pages/Policy";
 import AdminLogin from "./pages/AdminLogin";
 import ProductCards from "./components/ProductCards";
 import { ToastContainer, toast } from "react-toastify";
+import Profile from "./pages/Profile";
 
 
 
@@ -43,6 +44,7 @@ const App = () => {
         <Route path="/policy" element={<Policy />} />
         <Route path="/admin-login" element={<AdminLogin /> } />
         <Route path="/product-card" element={<ProductCards /> } />
+        <Route path="/profile" element={<Profile/>} />
 
 
 

@@ -28,7 +28,7 @@ const Product = () => {
   }, [productId, products]);
 
   return productData ? (
-    <div className="border-t-2 pt-10 transition-opacity ease-in duration-500 opacity-100">
+    <div className="border-t-2 dark:border-gray-800 pt-10 transition-opacity ease-in duration-500 opacity-100">
       <div className="flex gap-12 sm:gap-12 flex-col sm:flex-row">
         <div className="flex-1 flex flex-col-reverse gap-3 sm:flex-row">
           <div className="flex sm:flex-col overflow-x-auto sm:overflow-y-scroll justify-between sm:justify-normal sm:w-[18.7%] w-full">
@@ -63,7 +63,7 @@ const Product = () => {
             {currency}
             {productData.price}
           </p>
-          <p className="mt-3 text-gray-500 text-lg md:w-4/5 leading-normal">
+          <p className="mt-3 text-gray-500 dark:text-gray-400 text-lg md:w-4/5 leading-normal">
             {productData.description}
           </p>
           <div className="flex gap-4 flex-col mt-8">
@@ -72,7 +72,7 @@ const Product = () => {
               {productData.sizes.map((item, index) => (
                 <button
                   key={index}
-                  className={`border py-2 px-4 bg-gray-200 ${
+                  className={`border py-2 px-4 bg-gray-200 dark:bg-gray-950 dark:border-gray-700 ${
                     item === size
                       ? "border-x-slate-800 bg-slate-950 text-slate-100"
                       : ""
@@ -86,10 +86,10 @@ const Product = () => {
           </div>
           <button 
             onClick={() => addToCart(productData._id ,size)}
-          className="bg-slate-950 text-slate-100 sm:text-base text-sm px-8 py-3 mt-4 shadow-xl active:bg-gray-300 active:text-gray-950 hover:bg-gray-300 hover:text-gray-950">
+          className="bg-slate-950 dark:bg-slate-50 text-slate-100 dark:text-black sm:text-base text-sm px-8 py-3 mt-4 shadow-xl active:bg-gray-300 active:text-gray-950 hover:bg-gray-300 hover:text-gray-950 dark:hover:bg-slate-950 dark:hover:text-gray-50">
             ADD TO CART
           </button>
-          <div className="border-t mt-8">
+          <div className="border-t dark:border-gray-600 mt-8">
             <p className="mt-8 mb-2 text-gray-400 text-md">
               100% Original product.
             </p>
@@ -108,7 +108,7 @@ const Product = () => {
           <p className="border px-5 py-3 text-sm">Reviews(1,20,897)</p>
         </div>
         <div className="border py-8 px-5">
-          <p className="text-gray-500 text-md">
+          <p className="text-gray-500 dark:text-gray-300 text-md">
             An e-commerce website is an online platform that facilitates the
             buying and selling of products or services over the internet. It
             serves as a virtual marketplace where businesses and individuals can
@@ -117,7 +117,7 @@ const Product = () => {
             websites have gained immense popularity due to their convenience,
             accessibility, and the global reach they offer.
           </p>
-          <p className="text-gray-500 text-md mt-5">
+          <p className="text-gray-500 dark:text-gray-300 text-md mt-5">
             E-commerce websites typically display products or services along
             with detailed descriptions, images, prices, and any available
             variations (e.g., sizes, colors). Each product usually has its own

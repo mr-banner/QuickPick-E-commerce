@@ -96,17 +96,17 @@ const Collection = () => {
           } sm:block`}
         >
           <p className="mb-3 text-sm font-medium">CATEGORIES</p>
-          <div className="flex flex-col gap-2 text-md font-light text-gray-700">
+          <div className="flex flex-col gap-2 text-md font-light text-gray-700 dark:text-gray-200">
             <p className="flex gap-3">
-              <input type="checkbox" value={"Men"} className="w-3" onChange={handleCategoryChange} />
+              <input type="checkbox" value={"Men"} className="w-3 hover:cursor-pointer" onChange={handleCategoryChange} />
               Men
             </p>
             <p className="flex gap-3">
-              <input type="checkbox" value={"Women"} className="w-3" onChange={handleCategoryChange}/>
+              <input type="checkbox" value={"Women"} className="w-3 hover:cursor-pointer" onChange={handleCategoryChange}/>
               Women
             </p>
             <p className="flex gap-3">
-              <input type="checkbox" value={"Kids"} className="w-3" onChange={handleCategoryChange}/>
+              <input type="checkbox" value={"Kids"} className="w-3 hover:cursor-pointer" onChange={handleCategoryChange}/>
               Kids
             </p>
           </div>
@@ -117,17 +117,17 @@ const Collection = () => {
           } sm:block`}
         >
           <p className="mb-3 text-sm font-medium">TYPE</p>
-          <div className="flex flex-col gap-2 text-md font-light text-gray-700">
+          <div className="flex flex-col gap-2 text-md font-light text-gray-700 dark:text-gray-200">
             <p className="flex gap-3">
-              <input type="checkbox" value={"Topwear"} className="w-3" onChange={handleTypeChange} />
+              <input type="checkbox" value={"Topwear"} className="w-3 hover:cursor-pointer" onChange={handleTypeChange}  />
               Topwear
             </p>
             <p className="flex gap-3">
-              <input type="checkbox" value={"Bottomwear"} className="w-3" onChange={handleTypeChange}/>
+              <input type="checkbox" value={"Bottomwear"} className="w-3 hover:cursor-pointer" onChange={handleTypeChange}/>
               Bottomwear
             </p>
             <p className="flex gap-3">
-              <input type="checkbox" value={"Winterwear"} className="w-3" onChange={handleTypeChange}/>
+              <input type="checkbox" value={"Winterwear"} className="w-3 hover:cursor-pointer" onChange={handleTypeChange}/>
               Winterwear
             </p>
           </div>
@@ -137,7 +137,7 @@ const Collection = () => {
       <div className="flex-1">
         <div className="flex justify-between items-center mb-4 mt-6 sm:mt-0 text-base sm:text-2xl">
           <Title text1={"ALL"} text2={"PRODUCTS"} />
-          <select onChange={(e)=>setSortType(e.target.value)} className="border border-gray-300 text-sm p-2">
+          <select onChange={(e)=>setSortType(e.target.value)} className="border border-gray-300 dark:bg-slate-900 hover:cursor-pointer text-sm p-2">
             <option value="relavant">Sort by: relavant</option>
             <option value="low-high">Sort by: low-high</option>
             <option value="high-low">Sort by: high-low</option>

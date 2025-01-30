@@ -1,11 +1,10 @@
 @import url('https://fonts.googleapis.com/css2?family=Outfit:wght@100..900&family=Prata&display=swap');
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
 
-
-
-*{
+* {
     font-family: Outfit;
 }
 
@@ -17,8 +16,14 @@
     font-family: "Prata", serif;
     font-weight: 400;
     font-style: normal;
-  }
+}
 
---webkit-scrollbar{
+/* Fixed incorrect scrollbar selector */
+::-webkit-scrollbar {
     display: none;
+}
+
+/* Ensure light mode by default */
+body {
+    @apply bg-white text-black dark:bg-gray-900 dark:text-white;
 }

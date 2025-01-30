@@ -24,18 +24,18 @@ function Policy() {
 
   return (
     <div >
-      <div className="flex flex-col justify-center items-center bg-[#ffe4d5] sm:h-52 h-full mt-3 mb-1">
+      <div className="flex flex-col justify-center items-center bg-[#ffe4d5] dark:bg-slate-800 sm:h-52 h-full mt-3 mb-1">
         <p className="sm:text-2xl text-md font-bold tracking-wider sm:pb-2 pt-1">PRIVACY POLICY</p>
-        <p className="sm:text-xl text-sm tracking-wider font-medium text-gray-500 pb-3">
+        <p className="sm:text-xl text-sm tracking-wider font-medium text-gray-500 dark:text-gray-300 pb-3">
           How QuickPick handles your data
         </p>
-        <p className="text-sm font-light tracking-tight text-gray-600 pb-2 sm:pb-0">
+        <p className="text-sm font-light tracking-tight text-gray-600 dark:text-gray-400 pb-2 sm:pb-0">
           Updated December 26,2024
         </p>
       </div>
 
       <div>
-        <p className="text-center sm:text-base text-xs pl-1 font-normal text-gray-700 pb-2">
+        <p className="text-center sm:text-base text-xs pl-1 font-normal text-gray-700 dark:text-gray-300 pb-2">
           Welcome to QuickPick! Your privacy is important to us, and we are
           committed to safeguarding the information you share with us. This
           policy explains how we collect, use, and protect your information.This
@@ -46,10 +46,10 @@ function Policy() {
         </p>
       </div>
 
-      <hr className="border-t border-gray-300 mb-5" />
+      <hr className="border-t border-gray-300 dark:border-gray-500 mb-5" />
 
       <div className="flex sm:gap-x-48 justify-around items-stretch gap-3 relative sm:flex-row flex-col">
-        <div className="sm:w-1/4 w-full text-gray-900 sm:sticky sm:top-0 sm:h-[calc(100vh-7rem)]">
+        <div className="sm:w-1/4 w-full text-gray-900 dark:text-gray-300 sm:sticky sm:top-0 sm:h-[calc(100vh-7rem)]">
           <p
             className="font-semibold mb-2 cursor-pointer hover:text-[#d89977] duration-650 hover:scale-110 transition-all ease-in-out"
             onClick={() => handleScroll("section1")}
@@ -106,7 +106,7 @@ function Policy() {
           </p>
         </div>
 
-        <div className="text-gray-700">
+        <div className="text-gray-700 dark:text-gray-300">
           <div ref={sectionRefs.section1}>
             <h2 className="text-2xl font-medium pb-1">Information We Collect</h2>
             <p className="pb-2">
@@ -320,11 +320,11 @@ function Policy() {
         </div>
       </div>
 
-      <div className="text-center sm:h-20 bg-[#ffe4d5] p-4 mb-5">
-        <p className="sm:text-xl text-lg font-bold text-gray-700">
+      <div className="text-center sm:h-20 bg-[#ffe4d5] dark:bg-slate-800 p-4 mb-5">
+        <p className="sm:text-xl text-lg font-bold text-gray-700 dark:text-gray-300">
           Thank you for choosing QuickPick.
         </p>
-          <p className="text-md text-gray-700">
+          <p className="text-md text-gray-700 dark:text-gray-400">
           We look forward to serving you with the best possible experience,
           built on trust and respect for your privacy.
           </p>
