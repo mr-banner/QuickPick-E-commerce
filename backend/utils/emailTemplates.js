@@ -1,5 +1,3 @@
-// utils/emailTemplates.js
-
 export const subscriptionTemplate = (userEmail) => `
   <div style="font-family: Arial, sans-serif; max-width: 600px; margin: auto; padding: 20px; background-color: #f9f9f9;">
     <div style="background-color: #ffffff; padding: 30px; border-radius: 12px; box-shadow: 0 4px 12px rgba(0,0,0,0.1);">

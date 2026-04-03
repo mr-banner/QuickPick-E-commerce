@@ -56,7 +56,9 @@ const placeOrderRazorpay = asyncHandler(async (req, res) => {
   };
 
   const razorOrder = await razorpayInstance.orders.create(options);
-  return res.status(200).json(new ApiResponse(200, true, razorOrder, "Razorpay order created"));
+  return res.status(200).json(
+  new ApiResponse(200, razorOrder, true, "Razorpay order created")
+);
 });
 
 // Place Order - Stripe (Not Implemented)

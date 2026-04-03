@@ -1,8 +1,9 @@
 import { createContext, useEffect, useState } from "react";
-import { products } from "../assets/assets";
 import { toast } from "react-toastify";
-import axios from "axios"
+import axios from "axios";
 import { useNavigate } from "react-router-dom";
+import { jwtDecode } from "jwt-decode";
+
 export const ShopContext = createContext();
 
 export const ShopContextProvider = (props) => {
@@ -10,25 +11,39 @@ export const ShopContextProvider = (props) => {
   const backendUrl = import.meta.env.VITE_BACKEND_URL;
   const currency = "$";
   const delivery_fee = 10;
+
   const [search, setSearch] = useState("");
   const [products, setProducts] = useState([]);
   const [showSearch, setShowSearch] = useState(false);
   const [cartItem, setCartItem] = useState({});
-  const [token,setToken] = useState(localStorage.getItem("token") || "");
+  const [token, setToken] = useState(localStorage.getItem("token") || "");
   const navigate = useNavigate();
 
-  const addToCart = async (itemId, size) => {
+  // ✅ GET USER ID FROM TOKEN
+  let userId = null;
+  if (token) {
+    try {
+      const decoded = jwtDecode(token);
+      userId = decoded.id || decoded._id;
+    } catch (error) {
+      console.log("Token decode error:", error);
+    }
+  }
 
-    if(!token){
-      toast.error("Please Login")
-        navigate("/login")
+  const addToCart = async (itemId, size) => {
+    if (!token) {
+      toast.error("Please Login");
+      navigate("/login");
+      return;
     }
 
-    else if(!size) {
+    if (!size) {
       toast.error("Select product size");
       return;
-    }else{
+    }
+
     let cartData = structuredClone(cartItem);
+
     if (cartData[itemId]) {
       if (cartData[itemId][size]) {
         cartData[itemId][size] += 1;
@@ -39,72 +54,82 @@ export const ShopContextProvider = (props) => {
       cartData[itemId] = {};
       cartData[itemId][size] = 1;
     }
+
     setCartItem(cartData);
 
-    if(token){
-      try {
-        await axios.post(`${backendUrl}/api/v1/cart/add-cart`,{itemId,size},{headers:{token}})
-      } catch (error) {
-        toast.error(error.response?.data?.errors)
-      }
+    try {
+      await axios.post(
+        `${backendUrl}/api/v1/cart/add-cart`,
+        { itemId, size },
+        { headers: { token } }
+      );
+    } catch (error) {
+      toast.error(error.response?.data?.errors);
     }
-    toast.success("Added to cart successfully");
-    }
-  };
-  const updateQuantity = async (itemId, size, quantity) => {
-    let tempData = await structuredClone(cartItem);
 
+    toast.success("Added to cart successfully");
+  };
+
+  const updateQuantity = async (itemId, size, quantity) => {
+    let tempData = structuredClone(cartItem);
     tempData[itemId][size] = quantity;
-    // console.log(tempData);
 
     setCartItem(tempData);
-    if(token){
-      try {
-        await axios.post(`${backendUrl}/api/v1/cart/update-cart`,{itemId,size,quantity},{headers:{token}})
-      } catch (error) {
-        toast.error(error.response?.data?.errors)
-      }
+
+    try {
+      await axios.post(
+        `${backendUrl}/api/v1/cart/update-cart`,
+        { itemId, size, quantity },
+        { headers: { token } }
+      );
+    } catch (error) {
+      toast.error(error.response?.data?.errors);
     }
   };
 
-  const getUserCart = async (token)=>{
+  const getUserCart = async () => {
     try {
-      const response = await axios.post(`${backendUrl}/api/v1/cart/get-cart`,{},{headers:{token}})
-      if(response.status === 200){
-        setCartItem(response.data?.data)
+      const response = await axios.post(
+        `${backendUrl}/api/v1/cart/get-cart`,
+        {},
+        { headers: { token } }
+      );
+
+      if (response.status === 200) {
+        setCartItem(response.data?.data);
       }
-      
     } catch (error) {
-      
+      console.log(error);
     }
-  }
+  };
 
   const getCartCount = () => {
     let totalCount = 0;
+
     for (const items in cartItem) {
       for (const item in cartItem[items]) {
-        try {
-          if (cartItem[items][item] > 0) {
-            totalCount += cartItem[items][item];
-          }
-        } catch (error) {}
+        if (cartItem[items][item] > 0) {
+          totalCount += cartItem[items][item];
+        }
       }
     }
+
     return totalCount;
   };
 
-  const getProducts = async ()=>{
+  const getProducts = async () => {
     try {
-      const response = await axios.get(`${backendUrl}/api/v1/products/getAllProducts`)
-      if(response.status === 200){
-        setProducts(response.data.data)
-      }else{
-        toast.error(error.response?.data?.errors)
+      const response = await axios.get(
+        `${backendUrl}/api/v1/products/getAllProducts`
+      );
+
+      if (response.status === 200) {
+        setProducts(response.data.data);
       }
     } catch (error) {
-      toast.error(error.response?.data?.errors)
+      toast.error(error.response?.data?.errors);
     }
-  }
+  };
 
   useEffect(() => {
     if (!products.length) {
@@ -114,29 +139,24 @@ export const ShopContextProvider = (props) => {
 
   const getCartAmount = () => {
     let totalAmount = 0;
+
     for (const items in cartItem) {
       let itemInfo = products.find((product) => product._id === items);
+
       for (const item in cartItem[items]) {
-        try {
-          if (cartItem[items][item] > 0) {
-            totalAmount += itemInfo.price * cartItem[items][item];
-          }
-        } catch (error) {}
+        if (cartItem[items][item] > 0) {
+          totalAmount += itemInfo.price * cartItem[items][item];
+        }
       }
     }
+
     return totalAmount;
   };
-
-  // useEffect(() => {
-  //   if (!token && window.location.pathname !== "/login" || window.location.pathname !== "/signup") {
-  //     navigate("/login");
-  //   }
-  // }, [token, navigate]);
 
   useEffect(() => {
     if (token) {
       localStorage.setItem("token", token);
-      getUserCart(localStorage.getItem("token", token))
+      getUserCart();
     }
   }, [token]);
 
@@ -159,10 +179,13 @@ export const ShopContextProvider = (props) => {
     backendUrl,
     token,
     setToken,
+    userId, // ✅ IMPORTANT (NOW AVAILABLE EVERYWHERE)
   };
 
   return (
-    <ShopContext.Provider value={value}>{props.children}</ShopContext.Provider>
+    <ShopContext.Provider value={value}>
+      {props.children}
+    </ShopContext.Provider>
   );
 };
 
