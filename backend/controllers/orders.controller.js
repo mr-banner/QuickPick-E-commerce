@@ -71,9 +71,9 @@ const placeOrderStripe = asyncHandler(async (req, res) => {
 // Get All Orders (Admin)
 const allOrders = asyncHandler(async (req, res) => {
   const orders = await Orders.find({});
-  return res
-    .status(200)
-    .json(new ApiResponse(200, true, orders, "All orders fetched successfully"));
+  return res.status(200).json(
+  new ApiResponse(200, orders, true, "All orders fetched successfully")
+);
 });
 
 // Get User Orders

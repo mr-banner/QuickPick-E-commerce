@@ -20,7 +20,7 @@ const Orders = () => {
       const response = await axios.post(`${backendUrl}/api/v1/orders/userOrders`,{},{headers:{token}})
       if(response.status === 200){
         setLoading(false);
-        setOrderData(response.data.data)
+        setOrderData(response.data.data.reverse())
         // console.log(response.data.data[0].address.firstName);
         
       }
