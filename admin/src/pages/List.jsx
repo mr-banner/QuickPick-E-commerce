@@ -26,7 +26,7 @@ const List = ({token}) => {
 
   useEffect(()=>{
     fetchProduct();
-  },[products])
+  },[])
 
   const deleteProduct = async (id) => {
     try {

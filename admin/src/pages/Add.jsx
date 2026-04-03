@@ -11,6 +11,7 @@ const Add = ({ token }) => {
   const [image2, setImage2] = useState(false);
   const [image3, setImage3] = useState(false);
   const [image4, setImage4] = useState(false);
+  const [formKey, setFormKey] = useState(0);
 
   const [formData, setFormData] = useState({
     name: "",
@@ -42,6 +43,7 @@ const Add = ({ token }) => {
   const handleSubmit = async (e) => {
     e.preventDefault();
     setLoader(true);
+
     const formDataToSend = new FormData();
     formDataToSend.append("name", formData.name);
     formDataToSend.append("description", formData.description);
@@ -66,25 +68,31 @@ const Add = ({ token }) => {
           },
         }
       );
+
       if (response.status === 200) {
-        setLoader(false);
-        formData.name = "";
-        formData.description = "";
-        formData.price = "";
-        formData.category = "";
-        formData.subCategory = "";
-        formData.sizes = [];
-        formData.bestSeller = false;
+        // ✅ RESET FORM PROPERLY (FIXED)
+        setFormData({
+          name: "",
+          description: "",
+          price: "",
+          category: "",
+          subCategory: "",
+          sizes: [],
+          bestSeller: false,
+        });
+
         setImage1(false);
         setImage2(false);
         setImage3(false);
         setImage4(false);
+        setFormKey(prev => prev + 1);
+        toast.success(response.data.message);
       }
-      toast.success(response.data.message);
     } catch (error) {
-      setLoader(false);
       console.error("Error submitting data:", error);
-      toast.error(error.response?.data?.messag);
+      toast.error(error.response?.data?.message || error.message);
+    } finally {
+      setLoader(false); // ✅ ALWAYS RUNS (FIXED)
     }
   };
 
@@ -96,6 +104,7 @@ const Add = ({ token }) => {
     <div className="w-full h-[135vh] flex flex-col items-center p-6 bg-[#F7F0E7]">
       <h2 className="text-2xl font-bold mb-4">Add New Item</h2>
       <form
+       key={formKey}
         onSubmit={handleSubmit}
         className="bg-white p-6 rounded-lg shadow-md w-2/3"
       >
@@ -193,12 +202,7 @@ const Add = ({ token }) => {
           className="w-full p-2 mb-2 border rounded"
           required
         >
-          <option
-            value=""
-            className={`${!formData.category ? "text-gray-400" : ""}`}
-          >
-            Select Category
-          </option>
+          <option value="">Select Category</option>
           <option value="Men">Men</option>
           <option value="Women">Women</option>
           <option value="Kids">Kids</option>
@@ -212,23 +216,10 @@ const Add = ({ token }) => {
           className="w-full p-2 mb-2 border rounded"
           required
         >
-          <option
-            value=""
-            className={`${!formData.subCategory ? "text-gray-400" : ""}`}
-          >
-            Select Sub-Category
-          </option>
+          <option value="">Select Sub-Category</option>
           <option value="Topwear">Topwear</option>
           <option value="Bottomwear">Bottomwear</option>
           <option value="Winterwear">Winterwear</option>
-          {/* <option value="Hoodies">Hoodies</option>
-          <option value="Pants">Pants</option>
-          <option value="Jeans">Jeans</option>
-          <option value="Shorts">Shorts</option>
-          <option value="shoe">Shoes</option>
-          <option value="sneakers">Sneakers</option>
-          <option value="slippers">Slippers</option>
-          <option value="blazers">Blazers</option> */}
         </select>
 
         <h3 className="text-lg font-semibold mb-2 mt-4">Available Sizes</h3>
